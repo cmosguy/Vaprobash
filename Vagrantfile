@@ -64,7 +64,7 @@ nodejs_packages       = [          # List any global NodeJS packages that you wa
   #"yo",
 ]
 
-Vagrant.configure("2") do |config|
+$USER.configure("2") do |config|
 
   # Set server to Ubuntu 14.04
   config.vm.box = "ubuntu/trusty64"
@@ -78,7 +78,7 @@ Vagrant.configure("2") do |config|
   config.vm.network :private_network, ip: server_ip
 
   # Use NFS for the shared folder
-  config.vm.synced_folder ".", "/vagrant",
+  config.vm.synced_folder ".", "/$USER",
             id: "core",
             :nfs => true,
             :mount_options => ['nolock,vers=3,udp,noatime']
@@ -102,18 +102,18 @@ Vagrant.configure("2") do |config|
 
   # If using VMWare Fusion
   config.vm.provider "vmware_fusion" do |vb, override|
-    override.vm.box_url = "http://files.vagrantup.com/precise64_vmware.box"
+    override.vm.box_url = "http://files.$USERup.com/precise64_vmware.box"
 
     # Set server memory
     vb.vmx["memsize"] = server_memory
 
   end
 
-  # If using Vagrant-Cachier
-  # http://fgrehm.viewdocs.io/vagrant-cachier
-  if Vagrant.has_plugin?("vagrant-cachier")
+  # If using $USER-Cachier
+  # http://fgrehm.viewdocs.io/$USER-cachier
+  if $USER.has_plugin?("$USER-cachier")
     # Configure cached packages to be shared between instances of the same base box.
-    # Usage docs: http://fgrehm.viewdocs.io/vagrant-cachier/usage
+    # Usage docs: http://fgrehm.viewdocs.io/$USER-cachier/usage
     config.cache.scope = :box
 
     config.cache.synced_folder_opts = {
@@ -262,7 +262,7 @@ Vagrant.configure("2") do |config|
   ####
   # Local Scripts
   # Any local scripts you may want to run post-provisioning.
-  # Add these to the same directory as the Vagrantfile.
+  # Add these to the same directory as the $USERfile.
   ##########
   # config.vm.provision "shell", path: "./local-script.sh"
 

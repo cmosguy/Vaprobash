@@ -14,11 +14,11 @@ mkdir -p /home/$USER/.vim/swap
 
 # Install Vundle and set owner of .vim files
 git clone https://github.com/gmarik/vundle.git /home/$USER/.vim/bundle/vundle
-sudo chown -R vagrant:vagrant /home/$USER/.vim
+sudo chown -R $USER:$USER /home/$USER/.vim
 
 # Grab .vimrc and set owner
 curl --silent -L $github_url/helpers/vimrc > /home/$USER/.vimrc
-sudo chown vagrant:vagrant /home/$USER/.vimrc
+sudo chown $USER:$USER /home/$USER/.vimrc
 
 # Install Vundle Bundles
-sudo su - vagrant -c 'vim +BundleInstall +qall'
+sudo su - $USER -c 'vim +BundleInstall +qall'

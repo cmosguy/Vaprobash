@@ -16,7 +16,7 @@ sudo apt-get install -y curl unzip git-core ack-grep
 
 # Git Config and set Owner
 curl --silent -L $github_url/helpers/gitconfig > /home/$USER/.gitconfig
-sudo chown vagrant:vagrant /home/$USER/.gitconfig
+sudo chown $USER:$USER /home/$USER/.gitconfig
 
 # Common fixes for git
 git config --global http.postBuffer 65536000

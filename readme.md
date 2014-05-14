@@ -59,9 +59,9 @@ Here's a quickstart screencast!
 >
 > By default, NFS won't work on Windows. I suggest deleting the NFS block so Vagrant defaults back to its default file sync behavior.
 >
-> However, you can also try the "vagrant-winnfsd" plugin. Just run `vagrant plugin install vagrant-winnfsd` to try it out!
+> However, you can also try the "vagrant-winnfsd" plugin. Just run `vagrant plugin install $USER-winnfsd` to try it out!
 >
-> Vagrant version 1.5 will have [more file sharing options](https://www.vagrantup.com/blog/feature-preview-vagrant-1-5-rsync.html) to explore as well!
+> $USER version 1.5 will have [more file sharing options](https://www.$USERup.com/blog/feature-preview-$USER-1-5-rsync.html) to explore as well!
 
 ## Docs
 
@@ -105,15 +105,15 @@ Here's a quickstart screencast!
 	* PHPUnit
 	* MailCatcher
 
-## The Vagrantfile
+## The $USERfile
 
-The vagrant file does three things you should take note of:
+The $USER file does three things you should take note of:
 
 1. **Gives the virtual machine a static IP address of 192.168.22.10.** This IP address is again hard-coded (for now) into the LAMP, LEMP and Laravel/Symfony installers. This static IP allows us to use [xip.io](http://xip.io) for the virtual host setups while avoiding having to edit our computers' `hosts` file.
 2. **Uses NFS instead of the default file syncing.** NFS is reportedly faster than the default syncing for large files. If, however, you experience issues with the files actually syncing between your host and virtual machine, you can change this to the default syncing by deleting the lines setting up NFS:
 
   ```ruby
-  config.vm.synced_folder ".", "/vagrant",
+  config.vm.synced_folder ".", "/$USER",
             id: "core",
             :nfs => true,
             :mount_options => ['nolock,vers=3,udp,noatime']
@@ -125,7 +125,7 @@ The vagrant file does three things you should take note of:
     #vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
   ```
 
-  Don't forget to reload your Vagrantfile running `vagrant reload --no-provision`, in case your virtual machine already exists.
+  Don't forget to reload your $USERfile running `$USER reload --no-provision`, in case your virtual machine already exists.
 
 ## Connecting to MySQL from Sequel Pro:
 
